@@ -16,6 +16,10 @@ const CaptureScreen = () => {
         })
     }, [nav])
 
+    const capturePhoto = () => {
+        nav.navigate('Edit')
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.cameraContainer}></View>
@@ -23,10 +27,18 @@ const CaptureScreen = () => {
                 <TouchableOpacity style={styles.btnContainer}>
                     <Ionicons name="camera-reverse" size={28} color="#fff" />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btnContainer}>
+                <TouchableOpacity
+                    style={styles.btnContainer}
+                    onPress={() => {
+                        capturePhoto()
+                    }}
+                >
                     <Ionicons name="camera" size={28} color="#fff" />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btnContainer}>
+                <TouchableOpacity
+                    style={styles.btnContainer}
+                    onPress={() => nav.navigate('Gallery')}
+                >
                     <MaterialIcons name="photo-library" size={28} color="#fff" />
                 </TouchableOpacity>
             </View>
