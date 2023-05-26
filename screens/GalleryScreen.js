@@ -1,7 +1,7 @@
 import { View, Text, Dimensions, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Ionicons } from '@expo/vector-icons'
+import Navbar from '../components/Navbar'
 
 const { height, width } = Dimensions.get('window')
 
@@ -14,25 +14,10 @@ const GalleryScreen = () => {
     }, [nav])
     return (
         <View style={styles.container}>
-            <View style={styles.navbar}>
-                <View style={styles.navLeft}>
-                    <TouchableOpacity
-                        style={styles.btnContainer}
-                        onPress={() => nav.navigate('Capture')}
-                    >
-                        <Ionicons name="arrow-back" size={24} color="#fff" />
-                    </TouchableOpacity>
-                    <Text style={styles.headerText}>Gallery</Text>
-                </View>
-                <View style={styles.navRight}>
-                    <TouchableOpacity
-                        style={styles.btnContainer}
-                        onPress={() => nav.navigate('Setting')}
-                    >
-                        <Ionicons name="ios-settings-sharp" size={24} color="#fff" />
-                    </TouchableOpacity>
-                </View>
-            </View>
+            <Navbar
+                back={"Capture"}
+                header={"Gallery"}
+            />
             <ScrollView style={styles.gallery}>
                 <View style={styles.galleryBox}>
                     <View style={styles.dateBox}>
@@ -85,29 +70,6 @@ const styles = StyleSheet.create({
         height: height,
         width: width,
         // paddingHorizontal: 20,
-    },
-    navbar: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: width - 20,
-        // paddingHorizontal: 20,
-        // paddingVertical: 10,
-        backgroundColor: '#161B22',
-        margin: 10,
-        borderRadius: 50,
-    },
-    navLeft: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    navRight: {},
-    btnContainer: {
-        padding: 10,
-    },
-    headerText: {
-        color: '#fff',
-        fontSize: 18,
     },
     gallery: {
         // backgroundColor: '#161B22',
